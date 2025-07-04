@@ -1,0 +1,188 @@
+    <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search here...">
+                    </div>
+                    <div class="user-profile">
+                        <div class="user-avatar"></div>
+                        <div class="user-info">
+                            <div class="user-name">John Doe</div>
+                            <div class="user-role">Supplier</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Total Revenue</div>
+                            <div class="stat-value">$125,430</div>
+                            <div class="stat-change positive">↗ +12% from last month</div>
+                        </div>
+                        <div class="stat-icon revenue">💰</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Active Projects</div>
+                            <div class="stat-value">48</div>
+                            <div class="stat-change positive">↗ +6 new this week</div>
+                        </div>
+                        <div class="stat-icon projects">📊</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Total Buyers</div>
+                            <div class="stat-value">1,247</div>
+                            <div class="stat-change positive">↗ +23 this month</div>
+                        </div>
+                        <div class="stat-icon buyers">🛒</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div>
+                            <div class="stat-label">Pending Quotations</div>
+                            <div class="stat-value">15</div>
+                            <div class="stat-change negative">↘ -3 from yesterday</div>
+                        </div>
+                        <div class="stat-icon quotations">📄</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Revenue Analytics</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card recent-activities">
+                    <div class="chart-header">
+                        <div class="chart-title">Recent Activities</div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar"></div>
+                        <div class="activity-content">
+                            <div class="activity-title">New project proposal approved</div>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar"></div>
+                        <div class="activity-content">
+                            <div class="activity-title">Invoice sent to ABC Corp</div>
+                            <div class="activity-time">4 hours ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar"></div>
+                        <div class="activity-content">
+                            <div class="activity-title">New client registration</div>
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-avatar"></div>
+                        <div class="activity-content">
+                            <div class="activity-title">5-star review received</div>
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="bottom-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Order Distribution</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="orderChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">Monthly Performance</div>
+                    </div>
+                    <div class="performance-bars">
+                        <div class="performance-bar" style="height: 80%;" data-month="Jan"></div>
+                        <div class="performance-bar" style="height: 85%;" data-month="Feb"></div>
+                        <div class="performance-bar" style="height: 75%;" data-month="Mar"></div>
+                        <div class="performance-bar" style="height: 70%;" data-month="Apr"></div>
+                        <div class="performance-bar" style="height: 90%;" data-month="May"></div>
+                        <div class="performance-bar" style="height: 95%;" data-month="Jun"></div>
+                        <div class="performance-bar" style="height: 80%;" data-month="Jul"></div>
+                        <div class="performance-bar" style="height: 82%;" data-month="Aug"></div>
+                        <div class="performance-bar" style="height: 78%;" data-month="Sep"></div>
+                        <div class="performance-bar" style="height: 88%;" data-month="Oct"></div>
+                        <div class="performance-bar" style="height: 85%;" data-month="Nov"></div>
+                        <div class="performance-bar" style="height: 87%;" data-month="Dec"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-title">Monthly Goals</div>
+                        <div class="progress-percentage">78%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
+                    </div>
+                    <div class="progress-description">$98,233 of $123,111 target achieved</div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-title">Client Satisfaction</div>
+                        <div class="progress-percentage">92%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
+                    </div>
+                    <div class="progress-description">Based on 1,147 client reviews</div>
+                </div>
+                <div class="progress-card">
+                    <div class="progress-header">
+                        <div class="progress-title">Project Completion</div>
+                        <div class="progress-percentage">85%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
+                    </div>
+                    <div class="progress-description">41 of 48 active projects on track</div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-text">All Right Reserved 2025. Absolute</div>
+                <div class="payment-methods">
+                    <div class="payment-icon visa"></div>
+                    <div class="payment-icon paypal"></div>
+                    <div class="payment-icon amazon"></div>
+                    <div class="payment-icon apple"></div>
+                    <div class="payment-icon google"></div>
+                </div>
+            </div>
+        </main>

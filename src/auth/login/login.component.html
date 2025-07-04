@@ -1,0 +1,179 @@
+<div class="min-h-screen bg-white-100 flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center px-6 py-4 bg-gray-100 shadow">
+        <div>
+            <img src="assets/images/9746 1.png" alt="Elafmart Logo" class="h-10 w-auto" />
+        </div>
+
+        <select class="ml-6 border border-[#5CA62D] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#5CA62D]">
+            <option>English</option>
+            <option>Arabic</option>
+        </select>
+    </header>
+
+
+    <!-- Main Content -->
+    <div class="flex flex-col md:flex-row justify-center items-center flex-1 gap-10 p-6">
+        <!-- Image -->
+        <div class="w-full max-w-sm md:max-w-md">
+            <img class="rounded-lg w-full object-cover" src="assets/images/Rectangle 1025.png" alt="shopping">
+        </div>
+
+        <!-- Form -->
+        <div class="w-full max-w-md md:-mt-10">
+
+            <h2 class="text-2xl font-semibold text-[#5CA62D] mb-4 text-center">Sign In</h2>
+
+
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-4">
+                <!-- Email or Mobile -->
+                <div>
+                    <label class="block mb-1 text-sm font-medium">Email or Mobile</label>
+                    <input type="text" formControlName="email" placeholder="Enter Email or Mobile"
+                        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    <div class="text-red-600 text-sm mt-1" *ngIf="submitted && f['email'].errors?.['required']">
+                        Email or Mobile is required.
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label class="block mb-1 text-sm font-medium">Password</label>
+                    <input type="password" formControlName="password" placeholder="Enter password"
+                        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+                    <div class="text-red-600 text-sm mt-1" *ngIf="submitted && f['password'].errors?.['required']">
+                        Password is required.
+                    </div>
+                    <div class="text-right text-sm mt-1">
+                        <a  [routerLink]="['/forgot-password']" class="text-[#5CA62D] font-semibold italic hover:underline">Forgot Password ?</a>
+                    </div>
+                </div>
+
+                <!-- Role -->
+                <div>
+                    <label class="block mb-1 text-sm font-medium">Login as</label>
+                    <select formControlName="Type"
+                        class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#5CA62D]">
+                        <option value="">Select Role</option>
+                        <option value="Vendor">Vendor</option>
+                        <option value="Supplier">Supplier</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="text-red-600 text-sm mt-1" *ngIf="submitted && f['Type'].errors?.['required']">
+                        Please select a role.
+                    </div>
+                </div>
+
+                <!-- Continue Button -->
+                <button type="submit"
+                    class="w-full bg-[#5CA62D] hover:bg-[#5CA62D] text-white py-2 rounded font-semibold">
+                    Continue
+                </button>
+
+                <!-- Divider -->
+                <div class="flex items-center my-3">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="mx-2 text-gray-500 text-sm">Or, continue with</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <!-- Social Buttons -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button type="button"
+                        class="w-full flex items-center justify-center border px-4 py-2 rounded-lg hover:bg-gray-100">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google"
+                            class="w-5 h-5 mr-2" />
+                        <span class="text-sm font-medium">Sign in with Google</span>
+                    </button>
+                    <button type="button"
+                        class="w-full flex items-center justify-center border px-4 py-2 rounded-lg hover:bg-gray-100">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple"
+                            class="w-5 h-5 mr-2" />
+                        <span class="text-sm font-medium">Sign in with Apple</span>
+                    </button>
+                </div>
+
+                <!-- Account Link -->
+                <p class="text-center text-md mt-4">
+                    New to Elafmart?
+                    <a  [routerLink]="['/register']" class="text-[#5CA62D] font-medium hover:underline">Create an account</a>
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 pt-8 pb-6 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-sm">
+
+            <!-- Column 1: Logo + Description -->
+            <div>
+                <img src="assets/images/9746 1.png" alt="Elafmart Logo" class="h-10 mb-2" />
+                <p class="text-gray-600 mb-3">Making grocery trade smart, simple, and scalable.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your Email"
+                        class="border rounded-l px-3 py-1 w-full focus:outline-none" />
+                    <button class="bg-[#5CA62D] text-white px-4 rounded-r">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Services</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Home</li>
+                    <li>Categories</li>
+                    <li>Support</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Links -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Links</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Faq</li>
+                    <li>International Shipping</li>
+                    <li>Payment Options</li>
+                    <li>Track Your Order</li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Social -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Social</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Contact -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Contact US</h4>
+              <p class="text-gray-700">Email: support&#64;elafmart.com</p>
+                <p class="text-gray-700">Phone: 1800-XXX-XXXX</p>
+                <div class="flex gap-2 mt-2">
+                    <img src="assets/images/image 13.png" alt="" class="h-8" />
+                    <img src="assets/images/image 14.png" alt="" class="h-8" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="mt-6 border-t pt-4 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+            <div>All Right Reserved 2025 Absolve</div>
+            <div class="flex gap-2 mt-2 md:mt-0">
+                <img src="assets/images/Visa.png" alt="" class="h-6" />
+                <img src="assets/images/PayPal.png" alt="PayPal" class="h-6" />
+                <img src="assets/images/AmazonPay.png" alt="Amazon Pay" class="h-6" />
+                <img src="assets/images/ApplePay.png" alt="Apple Pay" class="h-6" />
+                <img src="assets/images/GooglePay.png" alt="Google Pay" class="h-6" />
+            </div>
+        </div>
+    </footer>
+</div>

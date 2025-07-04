@@ -1,0 +1,239 @@
+<div class="min-h-screen bg-white flex flex-col">
+    <!-- Header -->
+    <header class="flex items-center px-6 py-4 bg-gray-100 shadow">
+        <div>
+            <img src="assets/images/9746 1.png" alt="Elafmart Logo" class="h-10 w-auto" />
+        </div>
+
+        <select class="ml-6 border border-[#5CA62D] rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-[#5CA62D]">
+            <option>English</option>
+            <option>Arabic</option>
+        </select>
+    </header>
+
+
+
+    <!-- Main -->
+    <main class="flex flex-col lg:flex-row justify-center items-center gap-10 px-4 py-10 max-w-7xl mx-auto w-full">
+        <!-- Left Image -->
+        <div class="w-full lg:w-1/2">
+            <img src="assets/images/Rectangle 1025.png" alt="Shopping" class="w-full rounded-lg object-cover" />
+        </div>
+
+        <!-- Form -->
+        <div class="w-full lg:w-1/2">
+            <h2 class="text-2xl font-bold text-[#5CA62D] mb-6">Create your Elafmart Account</h2>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Country -->
+                <div>
+                    <label>Country / Region</label>
+                    <select formControlName="country" class="w-full border px-3 py-2 rounded mt-1">
+                        <option value="">Select country</option>
+                        <option *ngFor="let country of countryList" [value]="country">{{ country }}</option>
+                    </select>
+                    <div *ngIf="submitted && registerForm.controls['country'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        Country is required
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label>Email or Mobile</label>
+                    <input formControlName="emailOrMobile" type="text" placeholder="Enter Email or Mobile"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['emailOrMobile'].errors"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="registerForm.controls['emailOrMobile'].errors?.['required']">Email or mobile is
+                            required</span>
+                        <span *ngIf="registerForm.controls['emailOrMobile'].errors?.['email']">Enter a valid
+                            email</span>
+                    </div>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label>Password</label>
+                    <input formControlName="password" type="password" placeholder="Enter password"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['password'].errors"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="registerForm.controls['password'].errors?.['required']">Password is required</span>
+                        <span *ngIf="registerForm.controls['password'].errors?.['minlength']">Minimum 6
+                            characters</span>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label>Confirm Password</label>
+                    <input formControlName="confirmPassword" type="password" placeholder="Enter confirm password"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['confirmPassword'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        Confirm password is required
+                    </div>
+                    <!-- Custom 'mustMatch' validator -->
+                    <div *ngIf="submitted && registerForm.controls['confirmPassword'].errors?.['mustMatch']"
+                        class="text-red-500 text-sm mt-1">
+                        Passwords must match
+                    </div>
+                </div>
+
+                <!-- Company Name -->
+                <div>
+                    <label>Company Name</label>
+                    <input formControlName="companyName" type="text" placeholder="Enter company name"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['companyName'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        Company name is required
+                    </div>
+                </div>
+
+                <!-- Full Name -->
+                <div>
+                    <label>Full Name</label>
+                    <input formControlName="fullName" type="text" placeholder="Enter full name"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['fullName'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        Full name is required
+                    </div>
+                </div>
+
+                <!-- Mobile Number -->
+                <div>
+                    <label>Mobile Number</label>
+                    <input formControlName="mobileNumber" type="text" placeholder="Enter mobile number"
+                        class="w-full border px-3 py-2 rounded mt-1" />
+                    <div *ngIf="submitted && registerForm.controls['mobileNumber'].errors"
+                        class="text-red-500 text-sm mt-1">
+                        <span *ngIf="registerForm.controls['mobileNumber'].errors?.['required']">Mobile number is
+                            required</span>
+                        <span *ngIf="registerForm.controls['mobileNumber'].errors?.['pattern']">Enter valid
+                            number</span>
+                    </div>
+                </div>
+
+                <!-- Trade Role -->
+                <div>
+                    <label>Please select trade role</label>
+                    <select formControlName="tradeRole" class="w-full border px-3 py-2 rounded mt-1">
+                        <option value="">Select trade role</option>
+                        <option *ngFor="let role of tradeRoles" [value]="role">{{ role }}</option>
+                    </select>
+                    <div *ngIf="submitted && registerForm.controls['tradeRole'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        Trade role is required
+                    </div>
+                </div>
+
+                <!-- Terms -->
+                <div class="col-span-1 md:col-span-2 mt-3">
+                    <label class="inline-flex items-start space-x-2">
+                        <input type="checkbox" formControlName="agreeTerms" class="mt-1" />
+                        <span class="text-sm text-gray-700">
+                            I agree to the <a href="#" class="text-[#5CA62D] underline">Terms of Use</a> and
+                            <a href="#" class="text-[#5CA62D] underline">Privacy Policy</a>.
+                        </span>
+                    </label>
+                    <div *ngIf="submitted && registerForm.controls['agreeTerms'].errors?.['required']"
+                        class="text-red-500 text-sm mt-1">
+                        You must agree to the terms
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="col-span-1 md:col-span-2 mt-4">
+                    <button type="submit" class="w-full bg-[#5CA62D] hover:bg-[#4e8e28] text-white py-2 rounded">
+                        Create an Account
+                    </button>
+                </div>
+
+                <!-- Sign In -->
+                <div class="col-span-1 md:col-span-2 text-center mt-4">
+                    <p class="text-sm">Have an account?
+                        <a href="#" class="text-[#5CA62D] font-semibold">Sign In</a>
+                    </p>
+                </div>
+            </form>
+
+
+        </div>
+    </main>
+
+     <!-- Footer -->
+    <footer class="bg-gray-100 pt-8 pb-6 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-sm">
+
+            <!-- Column 1: Logo + Description -->
+            <div>
+                <img src="assets/images/9746 1.png" alt="Elafmart Logo" class="h-10 mb-2" />
+                <p class="text-gray-600 mb-3">Making grocery trade smart, simple, and scalable.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your Email"
+                        class="border rounded-l px-3 py-1 w-full focus:outline-none" />
+                    <button class="bg-[#5CA62D] text-white px-4 rounded-r">Subscribe</button>
+                </div>
+            </div>
+
+            <!-- Column 2: Services -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Services</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Home</li>
+                    <li>Categories</li>
+                    <li>Support</li>
+                    <li>Terms</li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Links -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Links</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Faq</li>
+                    <li>International Shipping</li>
+                    <li>Payment Options</li>
+                    <li>Track Your Order</li>
+                </ul>
+            </div>
+
+            <!-- Column 4: Social -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Social</h4>
+                <ul class="space-y-1 text-gray-700">
+                    <li>Facebook</li>
+                    <li>Instagram</li>
+                    <li>Twitter</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+
+            <!-- Column 5: Contact -->
+            <div>
+                <h4 class="font-semibold text-[#5CA62D] mb-2">Contact US</h4>
+              <p class="text-gray-700">Email: support&#64;elafmart.com</p>
+                <p class="text-gray-700">Phone: 1800-XXX-XXXX</p>
+                <div class="flex gap-2 mt-2">
+                    <img src="assets/images/image 13.png" alt="" class="h-8" />
+                    <img src="assets/images/image 14.png" alt="" class="h-8" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="mt-6 border-t pt-4 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+            <div>All Right Reserved 2025 Absolve</div>
+            <div class="flex gap-2 mt-2 md:mt-0">
+                <img src="assets/images/Visa.png" alt="" class="h-6" />
+                <img src="assets/images/PayPal.png" alt="PayPal" class="h-6" />
+                <img src="assets/images/AmazonPay.png" alt="Amazon Pay" class="h-6" />
+                <img src="assets/images/ApplePay.png" alt="Apple Pay" class="h-6" />
+                <img src="assets/images/GooglePay.png" alt="Google Pay" class="h-6" />
+            </div>
+        </div>
+    </footer>
+</div>
